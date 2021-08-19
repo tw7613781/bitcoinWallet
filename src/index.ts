@@ -1,4 +1,4 @@
-import express, { Express, Request, Response} from 'express';
+import express, { Express, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
@@ -10,10 +10,10 @@ const app: Express = express();
 
 app.use(helmet());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended:true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req: Request, res: Response) => {
   res.send('<h1>Hello from the TypeScript world!</h1>');
-})
+});
 
-app.listen(PORT, ()=>console.log(`Running in ${PORT}`));
+app.listen(PORT, () => console.log(`Running in ${PORT}`));
