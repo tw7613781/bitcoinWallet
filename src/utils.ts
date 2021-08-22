@@ -17,20 +17,17 @@ function isString(data: any): boolean {
 }
 
 export function isBip32Path(data: any): boolean {
-  if (!data || !isString(data)) return false;
   const big32PathRexExp = /^m\/(\d+'?\/)*(\d+'?)$/;
-  if (data.match(big32PathRexExp)) return true;
-  else return false;
+  if (!data || !isString(data) || !data.match(big32PathRexExp)) return false;
+  return true;
 }
 
 export function isPositiveNum(data: any): boolean {
-  if (!data || typeof data !== 'number') return false;
-  if (data < 0) return false;
+  if (data === undefined || typeof data !== 'number' || data < 0) return false;
   return true;
 }
 
 export function isCompressedPubKey(data: any): boolean {
-  if (!data || !isHexString(data)) return false;
-  if (data.length !== 66) return false;
+  if (!data || !isHexString(data) || data.length !== 66) return false;
   return true;
 }

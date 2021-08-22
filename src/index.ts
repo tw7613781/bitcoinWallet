@@ -14,19 +14,20 @@ export class HttpServer {
     this.port = process.env.PORT || 3000;
     this.app = express();
     this.walletRouter = new WalletRouter();
-  }
-
-  public start() {
     this.app.use(helmet());
     this.app.use(express.json());
     this.app.use(this.prefix + this.walletRouter.path, this.walletRouter.getRouter());
     this.app.use((req: Request, res: Response) => {
       notFoundResponse(res);
     });
+  }
 
+  public start() {
     this.app.listen(this.port, () => console.log(`Running in ${this.port}`));
   }
 }
 
-const httpServer = new HttpServer();
-httpServer.start();
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
+  const httpServer = new HttpServer();
+  httpServer.start();
+}

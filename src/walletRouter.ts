@@ -21,7 +21,7 @@ export class WalletRouter {
       try {
         const seed = req.body.seed;
         const path = req.body.path;
-        if (!seed || !isHexString(seed) || seed.length < 32 || seed.length > 128) {
+        if (!isHexString(seed) || seed.length < 32 || seed.length > 128) {
           throw new ApiError(RESPONSE_CODE.BAD_REQUEST, 'seed should be a hex string length varies from 32 to 128');
         }
         if (!isBip32Path(path)) {
@@ -43,7 +43,7 @@ export class WalletRouter {
         const m = req.body.m;
         const n = req.body.n;
         const pubKeys = req.body.pubKeys;
-        if (!m || !isPositiveNum(m) || !n || isPositiveNum(n) || m > n) {
+        if (!isPositiveNum(m) || !isPositiveNum(n) || m > n) {
           throw new ApiError(RESPONSE_CODE.BAD_REQUEST, 'm and n should both be a positive number and m should less or equal to n');
         }
         if (!Array.isArray(pubKeys)) {
