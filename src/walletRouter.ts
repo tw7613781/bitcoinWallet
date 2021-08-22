@@ -25,7 +25,7 @@ export class WalletRouter {
           throw new ApiError(RESPONSE_CODE.BAD_REQUEST, 'seed should be a hex string length varies from 32 to 128');
         }
         if (!isBip32Path(path)) {
-          throw new ApiError(RESPONSE_CODE.BAD_REQUEST, `path should be a bip 32 derive path follow regexp ^m\/(\d+'?\/)*(\d+'?)`);
+          throw new ApiError(RESPONSE_CODE.BAD_REQUEST, `path should be a bip 32 derive path follow regexp ^m\/(\d+'?\/)*(\d+'?)$`);
         }
         const addr: Address = Wallet.generateSegWitAddress(seed, path);
         successResponse(res, addr);

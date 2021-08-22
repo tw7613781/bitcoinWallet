@@ -5,10 +5,10 @@ import express, { Express, Request, Response } from 'express';
 import { WalletRouter } from './walletRouter';
 
 dotenv.config();
-class HttpServer {
+export class HttpServer {
   public readonly prefix: string = '/api/v1';
   public port: number | string;
-  private app: Express;
+  public app: Express;
   private walletRouter: WalletRouter;
   constructor() {
     this.port = process.env.PORT || 3000;

@@ -18,7 +18,7 @@ function isString(data: any): boolean {
 
 export function isBip32Path(data: any): boolean {
   if (!data || !isString(data)) return false;
-  const big32PathRexExp = /^m\/(\d+'?\/)*(\d+'?)/;
+  const big32PathRexExp = /^m\/(\d+'?\/)*(\d+'?)$/;
   if (data.match(big32PathRexExp)) return true;
   else return false;
 }
