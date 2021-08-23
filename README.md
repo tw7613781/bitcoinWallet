@@ -119,6 +119,10 @@ pubKeys should be a compressed pubkey hex (66 length long) array and m should be
 }
 ```
 
+# Node version
+
+Node version should >= 10
+
 # Test
 
 install dependencies
