@@ -1,3 +1,5 @@
+import ecc from 'tiny-secp256k1';
+
 export function isHexString(data: any): boolean {
   if (!data || !isString(data)) return false;
   for (const s of data) {
@@ -28,6 +30,6 @@ export function isPositiveNum(data: any): boolean {
 }
 
 export function isCompressedPubKey(data: any): boolean {
-  if (!data || !isHexString(data) || data.length !== 66) return false;
+  if (!data || !isHexString(data) || data.length !== 66 || !ecc.isPoint(Buffer.from(data, 'hex'))) return false;
   return true;
 }

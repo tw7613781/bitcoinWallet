@@ -80,7 +80,7 @@ m and n should both be a positive number and m should less or equal to n
 }
 ```
 
-pubKeys should be a compressed pubkey hex (66 length long) array and m should be less or equal to the pubKeys count
+pubKeys should be a compressed pubkey hex (66 length long) array and m should be less or equal to the pubKeys count. Each of pubkey should follow EC point rules.
 
 ```json
 {

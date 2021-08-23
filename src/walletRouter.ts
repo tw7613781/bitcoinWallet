@@ -54,7 +54,10 @@ export class WalletRouter {
         }
         for (const pubKey of pubKeys) {
           if (!isCompressedPubKey(pubKey)) {
-            throw new ApiError(RESPONSE_CODE.BAD_REQUEST, 'pubKeys should be a compressed pubkey hex (66 length long) array');
+            throw new ApiError(
+              RESPONSE_CODE.BAD_REQUEST,
+              'pubKeys should be a compressed pubkey hex (66 length long) array and follow EC point rules'
+            );
           }
         }
         const addr: Address = Wallet.generateMultiSigP2SHAddress(m, n, req.body.pubKeys);
