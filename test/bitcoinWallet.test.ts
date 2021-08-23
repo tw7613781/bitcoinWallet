@@ -140,7 +140,7 @@ describe('POST /multiSigAddress', () => {
       })
       .expect(400)
       .then(response => {
-        expect(response.body.message).toBe('pubKeys should be a compressed pubkey hex (66 length long) array');
+        expect(response.body.message).toBe('pubKeys should be a compressed pubkey hex (66 length long) array and follow EC point rules');
       });
   });
 
@@ -158,7 +158,7 @@ describe('POST /multiSigAddress', () => {
       })
       .expect(400)
       .then(response => {
-        expect(response.body.message).toBe('pubKeys should be a compressed pubkey hex (66 length long) array');
+        expect(response.body.message).toBe('pubKeys should be a compressed pubkey hex (66 length long) array and follow EC point rules');
       });
   });
 
@@ -176,7 +176,7 @@ describe('POST /multiSigAddress', () => {
       })
       .expect(400)
       .then(response => {
-        expect(response.body.message).toBe('pubKeys should be a compressed pubkey hex (66 length long) array');
+        expect(response.body.message).toBe('pubKeys should be a compressed pubkey hex (66 length long) array and follow EC point rules');
       });
   });
 });
