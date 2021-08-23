@@ -1,4 +1,4 @@
-# bitcoinWallet
+# BitcoinWallet
 
 A typescript written API server for bitcoin wallet
 
